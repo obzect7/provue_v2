@@ -1,22 +1,9 @@
 import request from '@/utils/request'
 
-const userApi = {
-  Login: '/auth/login',
-  Logout: '/auth/logout',
-  ForgePassword: '/auth/forge-password',
-  Register: '/auth/register',
-  twoStepCode: '/auth/2step-code',
-  SendSms: '/account/sms',
-  SendSmsErr: '/account/sms_err',
-  // get my info
-  UserInfo: '/user/info',
-  UserMenu: '/user/nav'
-}
-
 /**
  * login func
  * parameter: {
- *     username: '',
+ *     userid: '',
  *     password: '',
  *     remember_me: true,
  *     captcha: '12345'
@@ -26,7 +13,7 @@ const userApi = {
  */
 export function login (parameter) {
   return request({
-    url: userApi.Login,
+    url: '/auth/login',
     method: 'post',
     data: parameter
   })
@@ -34,7 +21,7 @@ export function login (parameter) {
 
 export function getSmsCaptcha (parameter) {
   return request({
-    url: userApi.SendSms,
+    url: '',
     method: 'post',
     data: parameter
   })
@@ -42,7 +29,7 @@ export function getSmsCaptcha (parameter) {
 
 export function getInfo () {
   return request({
-    url: userApi.UserInfo,
+    url: '/user/info',
     method: 'get',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -52,29 +39,17 @@ export function getInfo () {
 
 export function getCurrentUserNav () {
   return request({
-    url: userApi.UserMenu,
+    url: '/user/nav',
     method: 'get'
   })
 }
 
 export function logout () {
   return request({
-    url: userApi.Logout,
+    url: '/auth/logout',
     method: 'post',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
     }
-  })
-}
-
-/**
- * get user 2step code open?
- * @param parameter {*}
- */
-export function get2step (parameter) {
-  return request({
-    url: userApi.twoStepCode,
-    method: 'post',
-    data: parameter
   })
 }

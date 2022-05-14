@@ -28,33 +28,33 @@ router.beforeEach((to, from, next) => {
         // request login userInfo
         store
           .dispatch('GetInfo')
-          .then(res => {
+          .then((res) => {
             const roles = res.result && res.result.role
             // generate dynamic router
             store.dispatch('GenerateRoutes', { roles }).then(() => {
-              // 根据roles权限生成可访问的路由表
-              // 动态添加可访问路由表
+              // 역할 권한을 기반으로 액세스 가능한 라우팅 테이블 생성
+              // 액세스 가능한 라우팅 테이블을 동적으로 추가
               // VueRouter@3.5.0+ New API
-              store.getters.addRouters.forEach(r => {
+              store.getters.addRouters.forEach((r) => {
                 router.addRoute(r)
               })
-              // 请求带有 redirect 重定向时，登录自动重定向到该地址
+              // 요청이 redirect로 리디렉션되는 경우，로그인이 자동으로 이 주소로 리디렉션됩니다.
               const redirect = decodeURIComponent(from.query.redirect || to.path)
               if (to.path === redirect) {
                 // set the replace: true so the navigation will not leave a history record
                 next({ ...to, replace: true })
               } else {
-                // 跳转到目的路由
+                // 목적지 경로로 점프
                 next({ path: redirect })
               }
             })
           })
           .catch(() => {
             notification.error({
-              message: '错误',
-              description: '请求用户信息失败，请重试'
+              message: '에러',
+              description: '사용자 정보를 요청하지 못했습니다. 다시 시도해 주세요.'
             })
-            // 失败时，获取用户信息失败时，调用登出，来清空历史保留信息
+            // 실패 시 사용자 정보 획득 실패 시 로그아웃을 호출하여 이력 보유 정보 삭제
             store.dispatch('Logout').then(() => {
               next({ path: loginRoutePath, query: { redirect: to.fullPath } })
             })
@@ -65,7 +65,7 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     if (allowList.includes(to.name)) {
-      // 在免登录名单，直接进入
+      // 로그인 목록에서 직접 입력
       next()
     } else {
       next({ path: loginRoutePath, query: { redirect: to.fullPath } })

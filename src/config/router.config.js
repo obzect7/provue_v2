@@ -4,7 +4,7 @@ import { bxAnaalyse } from '@/core/icons'
 
 const RouteView = {
   name: 'RouteView',
-  render: h => h('router-view')
+  render: (h) => h('router-view')
 }
 
 export const asyncRouterMap = [
@@ -251,7 +251,12 @@ export const asyncRouterMap = [
                 path: '/account/settings/binding',
                 name: 'BindingSettings',
                 component: () => import('@/views/account/settings/Binding'),
-                meta: { title: 'account.settings.menuMap.binding', hidden: true, keepAlive: true, permission: ['user'] }
+                meta: {
+                  title: 'account.settings.menuMap.binding',
+                  hidden: true,
+                  keepAlive: true,
+                  permission: ['user']
+                }
               },
               {
                 path: '/account/settings/notification',

@@ -17,7 +17,7 @@ export default (Vue) => {
       if (checkFunction instanceof Function) {
         const res = checkFunction()
         if (res instanceof Promise) {
-          res.then(c => {
+          res.then((c) => {
             c && afterHandel()
           })
         } else {
@@ -66,36 +66,50 @@ export default (Vue) => {
         if (modalModel) {
           delete modalProps.model
         }
-        const ModalProps = Object.assign({}, modalModel && { model: modalModel } || {}, {
-          attrs: Object.assign({}, {
-            ...(modalProps.attrs || modalProps)
-          }, {
-            visible: this.visible
-          }),
-          on: Object.assign({}, {
-            ...(modalProps.on || modalProps)
-          }, {
-            ok: () => {
-              that.handleOk()
+        const ModalProps = Object.assign({}, (modalModel && { model: modalModel }) || {}, {
+          attrs: Object.assign(
+            {},
+            {
+              ...(modalProps.attrs || modalProps)
             },
-            cancel: () => {
-              that.handleClose()
+            {
+              visible: this.visible
             }
-          })
+          ),
+          on: Object.assign(
+            {},
+            {
+              ...(modalProps.on || modalProps)
+            },
+            {
+              ok: () => {
+                that.handleOk()
+              },
+              cancel: () => {
+                that.handleClose()
+              }
+            }
+          )
         })
 
         const componentModel = componentProps && componentProps.model
         if (componentModel) {
           delete componentProps.model
         }
-        const ComponentProps = Object.assign({}, componentModel && { model: componentModel } || {}, {
+        const ComponentProps = Object.assign({}, (componentModel && { model: componentModel }) || {}, {
           ref: '_component',
-          attrs: Object.assign({}, {
-            ...((componentProps && componentProps.attrs) || componentProps)
-          }),
-          on: Object.assign({}, {
-            ...((componentProps && componentProps.on) || componentProps)
-          })
+          attrs: Object.assign(
+            {},
+            {
+              ...((componentProps && componentProps.attrs) || componentProps)
+            }
+          ),
+          on: Object.assign(
+            {},
+            {
+              ...((componentProps && componentProps.on) || componentProps)
+            }
+          )
         })
 
         return h(Modal, ModalProps, [h(component, ComponentProps)])

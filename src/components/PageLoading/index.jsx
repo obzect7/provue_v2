@@ -29,9 +29,11 @@ export const PageLoading = {
       top: '40%',
       transform: 'translate(-50%, -50%)'
     }
-    return (<div style={style}>
-      <Spin size={this.size} style={spinStyle} tip={this.tip} />
-    </div>)
+    return (
+      <div style={style}>
+        <Spin size={this.size} style={spinStyle} tip={this.tip} />
+      </div>
+    )
   }
 }
 
@@ -60,7 +62,7 @@ loading.newInstance = (Vue, options) => {
       const props = {}
       this.tip && (props.tip = tip)
       if (this.visible) {
-        return <PageLoading { ...{ props } } />
+        return <PageLoading {...{ props }} />
       }
       return null
     }

@@ -30,6 +30,4 @@ const VueAxios = {
   }
 }
 
-export {
-  VueAxios
-}
+export { VueAxios }

@@ -1,7 +1,12 @@
 <template>
   <div>
     <a-form>
-      <a-result title="操作成功" :is-success="true" sub-title="预计两小时内到账" style="max-width: 560px; margin: 40px auto 0;">
+      <a-result
+        title="操作成功"
+        :is-success="true"
+        sub-title="预计两小时内到账"
+        style="max-width: 560px; margin: 40px auto 0"
+      >
         <div class="information">
           <a-row>
             <a-col :sm="8" :xs="24">付款账户：</a-col>
@@ -48,17 +53,17 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-  .information {
-    line-height: 22px;
+.information {
+  line-height: 22px;
 
-    .ant-row:not(:last-child) {
-      margin-bottom: 24px;
-    }
+  .ant-row:not(:last-child) {
+    margin-bottom: 24px;
   }
-  .money {
-    font-family: "Helvetica Neue",sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 14px;
-  }
+}
+.money {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 14px;
+}
 </style>

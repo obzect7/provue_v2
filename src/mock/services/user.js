@@ -1,12 +1,12 @@
 import Mock from 'mockjs2'
 import { builder } from '../util'
 
-const info = options => {
+const info = (options) => {
   console.log('options', options)
   const userInfo = {
     id: '4291d7da9005377ec9aec4a71ea837f',
     name: '天野远子',
-    username: 'admin',
+    userid: 'admin',
     password: '',
     avatar: '/avatar2.jpg',
     status: 1,
@@ -472,7 +472,7 @@ const info = options => {
  * @param {*} options
  * @returns
  */
-const userNav = options => {
+const userNav = (options) => {
   const nav = [
     // dashboard
     {

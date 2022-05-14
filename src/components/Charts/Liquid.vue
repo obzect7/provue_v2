@@ -14,7 +14,7 @@
         color=""
         :v-style="{
           lineWidth: 10,
-          opacity: 0.75
+          opacity: 0.75,
         }"
         :tooltip="[
           'transfer*value',
@@ -22,7 +22,7 @@
             return {
               name: transfer,
               value,
-            };
+            }
           },
         ]"
       ></v-interval>
@@ -33,7 +33,7 @@
         :top="true"
         :position="{
           gender: row.transfer,
-          value: 45
+          value: 45,
         }"
         :content="row.value + '%'"
         :v-style="{
@@ -62,6 +62,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,10 +1,5 @@
 <template>
-  <a-list
-    itemLayout="horizontal"
-    :dataSource="data"
-  >
-
-  </a-list>
+  <a-list itemLayout="horizontal" :dataSource="data"> </a-list>
 </template>
 
 <script>
@@ -14,12 +9,8 @@ export default {
       data: []
     }
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

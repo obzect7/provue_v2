@@ -2,7 +2,7 @@ English | [한국어](./README.ko-KR.md)
 
 <h1 align="center">Prosoft vue2.x 백오피스</h1>
 <div align="center">
-An out-of-box UI solution for enterprise applications as a Vue boilerplate. based on  <a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/" target="_blank">Ant Design of Vue</a>
+An out-of-box UI solution for enterprise applications as a Vue boilerplate. based on  <a href="https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/" target="_blank">프로소프트 of Vue</a>
 </div>
 
 <div align="center">
@@ -14,7 +14,7 @@ An out-of-box UI solution for enterprise applications as a Vue boilerplate. base
 - webpack
 - eslint
 - @vue/cli
-- [ant-design-vue@1.x](https://github.com/vueComponent/ant-design-vue) - Ant Design Of Vue 
+- [ant-design-vue@1.x](https://github.com/vueComponent/ant-design-vue) - 프로소프트 Of Vue 
 - [vue-cropper](https://github.com/xyxiao001/vue-cropper) - Picture edit
 - [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - AntV G2
 - [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - Antv/G2 of Vue

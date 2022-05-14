@@ -33,12 +33,12 @@ function setI18nLanguage (lang) {
 }
 
 export function loadLanguageAsync (lang = defaultLang) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     // 缓存语言设置
     storage.set('lang', lang)
     if (i18n.locale !== lang) {
       if (!loadedLanguages.includes(lang)) {
-        return import(/* webpackChunkName: "lang-[request]" */ `./lang/${lang}`).then(msg => {
+        return import(/* webpackChunkName: "lang-[request]" */ `./lang/${lang}`).then((msg) => {
           const locale = msg.default
           i18n.setLocaleMessage(lang, locale)
           loadedLanguages.push(lang)

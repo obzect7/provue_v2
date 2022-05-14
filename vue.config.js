@@ -54,7 +54,7 @@ const vueConfig = {
     externals: isProd ? assetsCDN.externals : {}
   },
 
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.alias.set('@$', resolve('src'))
 
     const svgRule = config.module.rule('svg')
@@ -77,7 +77,7 @@ const vueConfig = {
     // if prod is on
     // assets require on cdn
     if (isProd) {
-      config.plugin('html').tap(args => {
+      config.plugin('html').tap((args) => {
         args[0].cdn = assetsCDN
         return args
       })

@@ -109,14 +109,13 @@ export default {
   }
 
   &.antd-pro-components-standard-form-row-index-standardFormRowGrid {
-      /deep/ .ant-form-item,
-      div.ant-form-item-control-wrapper {
-        display: block;
-      }
-      /deep/ .ant-form-item-label {
-        float: left;
-      }
+    /deep/ .ant-form-item,
+    div.ant-form-item-control-wrapper {
+      display: block;
+    }
+    /deep/ .ant-form-item-label {
+      float: left;
+    }
   }
 }
-
 </style>

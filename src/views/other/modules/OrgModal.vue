@@ -9,16 +9,11 @@
   >
     <a-spin :spinning="confirmLoading">
       <a-form :form="form">
-
-        <a-form-item
-          label="父级ID"
-        >
+        <a-form-item label="父级ID">
           <a-input v-decorator="['parentId', {}]" disabled />
         </a-form-item>
 
-        <a-form-item
-          label="机构名称"
-        >
+        <a-form-item label="机构名称">
           <a-input v-decorator="['orgName', {}]" />
         </a-form-item>
       </a-form>
@@ -48,9 +43,7 @@ export default {
     this.form = this.$form.createForm(this)
     console.log('form::', this.form)
   },
-  created () {
-
-  },
+  created () {},
   methods: {
     add (id) {
       this.edit({ parentId: id })
@@ -78,23 +71,25 @@ export default {
           // 模拟后端请求 2000 毫秒延迟
           new Promise((resolve) => {
             setTimeout(() => resolve(), 2000)
-          }).then(() => {
-            // Do something
-            _this.$message.success('保存成功')
-            _this.$emit('ok')
-          }).catch(() => {
-            // Do something
-          }).finally(() => {
-            _this.confirmLoading = false
-            _this.close()
           })
+            .then(() => {
+              // Do something
+              _this.$message.success('保存成功')
+              _this.$emit('ok')
+            })
+            .catch(() => {
+              // Do something
+            })
+            .finally(() => {
+              _this.confirmLoading = false
+              _this.close()
+            })
         }
       })
     },
     handleCancel () {
       this.close()
     }
-
   }
 }
 </script>

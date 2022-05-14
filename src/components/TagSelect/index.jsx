@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     onChange (checked) {
-      const key = Object.keys(this.items).filter(key => key === checked.value)
+      const key = Object.keys(this.items).filter((key) => key === checked.value)
       this.items[key] = checked.checked
       const bool = Object.values(this.items).lastIndexOf(false)
       if (bool === -1) {
@@ -51,14 +51,14 @@ export default {
       }
     },
     onCheckAll (checked) {
-      Object.keys(this.items).forEach(v => {
+      Object.keys(this.items).forEach((v) => {
         this.items[v] = checked.checked
       })
       this.localCheckAll = checked.checked
     },
     getItemsKey (items) {
       const totalItem = {}
-      items.forEach(item => {
+      items.forEach((item) => {
         totalItem[item.componentOptions.propsData && item.componentOptions.propsData.value] = false
       })
       return totalItem
@@ -74,13 +74,15 @@ export default {
           }
         }
       }
-      const checkAllElement = <Option key={'total'} checked={this.localCheckAll} {...props}>All</Option>
-      return !this.hideCheckAll && checkAllElement || null
+      const checkAllElement = (
+        <Option key={'total'} checked={this.localCheckAll} {...props}>
+          All
+        </Option>
+      )
+      return (!this.hideCheckAll && checkAllElement) || null
     },
     // expandable
-    renderExpandable () {
-
-    },
+    renderExpandable () {},
     // render option
     renderTags (items) {
       const listeners = {
@@ -90,7 +92,7 @@ export default {
         }
       }
 
-      return items.map(vnode => {
+      return items.map((vnode) => {
         const options = vnode.componentOptions
         options.listeners = listeners
         return vnode
@@ -98,7 +100,9 @@ export default {
     }
   },
   render () {
-    const { $props: { prefixCls } } = this
+    const {
+      $props: { prefixCls }
+    } = this
     const classString = {
       [`${prefixCls}`]: true
     }

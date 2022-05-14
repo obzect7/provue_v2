@@ -10,9 +10,7 @@
     <a-steps :current="1">
       <a-step>
         <!-- <span slot="title">Finished</span> -->
-        <template slot="title">
-          Finished
-        </template>
+        <template slot="title"> Finished </template>
         <span slot="description">This is a description.</span>
       </a-step>
       <a-step title="In Progress" description="This is a description." />
@@ -60,11 +58,11 @@ export default {
       if (this.mdl.permissions && this.permissions) {
         // 先处理要勾选的权限结构
         const permissionsAction = {}
-        this.mdl.permissions.forEach(permission => {
-          permissionsAction[permission.permissionId] = permission.actionEntitySet.map(entity => entity.action)
+        this.mdl.permissions.forEach((permission) => {
+          permissionsAction[permission.permissionId] = permission.actionEntitySet.map((entity) => entity.action)
         })
         // 把权限表遍历一遍，设定要勾选的权限 action
-        this.permissions.forEach(permission => {
+        this.permissions.forEach((permission) => {
           permission.selected = permissionsAction[permission.id] || []
         })
       }
@@ -90,16 +88,19 @@ export default {
           // 模拟后端请求 2000 毫秒延迟
           new Promise((resolve) => {
             setTimeout(() => resolve(), 2000)
-          }).then(() => {
-            // Do something
-            _this.$message.success('保存成功')
-            _this.$emit('ok')
-          }).catch(() => {
-            // Do something
-          }).finally(() => {
-            _this.confirmLoading = false
-            _this.close()
           })
+            .then(() => {
+              // Do something
+              _this.$message.success('保存成功')
+              _this.$emit('ok')
+            })
+            .catch(() => {
+              // Do something
+            })
+            .finally(() => {
+              _this.confirmLoading = false
+              _this.close()
+            })
         }
       })
     },
@@ -107,26 +108,27 @@ export default {
       this.close()
     },
     onChangeCheck (permission) {
-      permission.indeterminate = !!permission.selected.length && (permission.selected.length < permission.actionsOptions.length)
+      permission.indeterminate =
+        !!permission.selected.length && permission.selected.length < permission.actionsOptions.length
       permission.checkedAll = permission.selected.length === permission.actionsOptions.length
     },
     onChangeCheckAll (e, permission) {
       Object.assign(permission, {
-        selected: e.target.checked ? permission.actionsOptions.map(obj => obj.value) : [],
+        selected: e.target.checked ? permission.actionsOptions.map((obj) => obj.value) : [],
         indeterminate: false,
         checkedAll: e.target.checked
       })
     },
     loadPermissions () {
       const that = this
-      getPermissions().then(res => {
+      getPermissions().then((res) => {
         const result = res.result
-        that.permissions = result.map(permission => {
+        that.permissions = result.map((permission) => {
           const options = JSON.parse(permission.actionData) || []
           permission.checkedAll = false
           permission.selected = []
           permission.indeterminate = false
-          permission.actionsOptions = options.map(option => {
+          permission.actionsOptions = options.map((option) => {
             return {
               label: option.describe,
               value: option.action
@@ -136,11 +138,8 @@ export default {
         })
       })
     }
-
   }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

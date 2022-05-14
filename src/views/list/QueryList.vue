@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import ATextarea from 'ant-design-vue/es/input/TextArea'
 import AInput from 'ant-design-vue/es/input/Input'
 // 动态切换组件
@@ -26,9 +25,7 @@ export default {
       record: ''
     }
   },
-  created () {
-
-  },
+  created () {},
   methods: {
     handleEdit (record) {
       this.record = record || ''

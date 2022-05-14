@@ -60,9 +60,10 @@ export default {
     const { prefixCls, ...props } = this.$props
     return (
       <div class={this.prefixCls}>
-        <TextArea {...{ props }} value={this.value} onChange={this.handleChange}>
-        </TextArea>
-        <span class="limit">{this.currentLimit}/{this.limit}</span>
+        <TextArea {...{ props }} value={this.value} onChange={this.handleChange}></TextArea>
+        <span class="limit">
+          {this.currentLimit}/{this.limit}
+        </span>
       </div>
     )
   }

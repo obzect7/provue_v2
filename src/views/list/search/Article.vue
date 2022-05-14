@@ -2,7 +2,7 @@
   <div>
     <a-card :bordered="false" class="ant-pro-components-tag-select">
       <a-form :form="form" layout="inline">
-        <standard-form-row title="所属类目" block style="padding-bottom: 11px;">
+        <standard-form-row title="所属类目" block style="padding-bottom: 11px">
           <a-form-item>
             <tag-select>
               <tag-select-option value="Category1">类目一</tag-select-option>
@@ -24,7 +24,7 @@
             <a-col :md="24">
               <a-form-item :wrapper-col="{ span: 24 }">
                 <a-select
-                  style="max-width: 268px; width: 100%;"
+                  style="max-width: 268px; width: 100%"
                   mode="multiple"
                   placeholder="选择 onwer"
                   v-decorator="['owner']"
@@ -42,14 +42,14 @@
           <a-row :gutter="16">
             <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="8">
               <a-form-item label="活跃用户" :wrapper-col="{ xs: 24, sm: 24, md: 12 }">
-                <a-select placeholder="不限" style="max-width: 200px; width: 100%;">
+                <a-select placeholder="不限" style="max-width: 200px; width: 100%">
                   <a-select-option value="李三">李三</a-select-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="8">
               <a-form-item label="好评度" :wrapper-col="{ xs: 24, sm: 24, md: 12 }">
-                <a-select placeholder="不限" style="max-width: 200px; width: 100%;">
+                <a-select placeholder="不限" style="max-width: 200px; width: 100%">
                   <a-select-option value="优秀">优秀</a-select-option>
                 </a-select>
               </a-form-item>
@@ -59,14 +59,8 @@
       </a-form>
     </a-card>
 
-    <a-card style="margin-top: 24px;" :bordered="false">
-      <a-list
-        size="large"
-        rowKey="id"
-        :loading="loading"
-        itemLayout="vertical"
-        :dataSource="data"
-      >
+    <a-card style="margin-top: 24px" :bordered="false">
+      <a-list size="large" rowKey="id" :loading="loading" itemLayout="vertical" :dataSource="data">
         <a-list-item :key="item.id" slot="renderItem" slot-scope="item">
           <template slot="actions">
             <icon-text type="star-o" :text="item.star" />
@@ -77,15 +71,21 @@
             <a slot="title" href="https://vue.ant.design/">{{ item.title }}</a>
             <template slot="description">
               <span>
-                <a-tag>Ant Design</a-tag>
+                <a-tag>프로소프트</a-tag>
                 <a-tag>设计语言</a-tag>
                 <a-tag>蚂蚁金服</a-tag>
               </span>
             </template>
           </a-list-item-meta>
-          <article-list-content :description="item.description" :owner="item.owner" :avatar="item.avatar" :href="item.href" :updateAt="item.updatedAt" />
+          <article-list-content
+            :description="item.description"
+            :owner="item.owner"
+            :avatar="item.avatar"
+            :href="item.href"
+            :updateAt="item.updatedAt"
+          />
         </a-list-item>
-        <div slot="footer" v-if="data.length > 0" style="text-align: center; margin-top: 16px;">
+        <div slot="footer" v-if="data.length > 0" style="text-align: center; margin-top: 16px">
           <a-button @click="loadMore" :loading="loadingMore">加载更多</a-button>
         </div>
       </a-list>
@@ -146,7 +146,7 @@ export default {
       console.log(`selected ${value}`)
     },
     getList () {
-      this.$http.get('/list/article').then(res => {
+      this.$http.get('/list/article').then((res) => {
         console.log('res', res)
         this.data = res.result
         this.loading = false
@@ -154,14 +154,19 @@ export default {
     },
     loadMore () {
       this.loadingMore = true
-      this.$http.get('/list/article').then(res => {
-        this.data = this.data.concat(res.result)
-      }).finally(() => {
-        this.loadingMore = false
-      })
+      this.$http
+        .get('/list/article')
+        .then((res) => {
+          this.data = this.data.concat(res.result)
+        })
+        .finally(() => {
+          this.loadingMore = false
+        })
     },
     setOwner () {
-      const { form: { setFieldsValue } } = this
+      const {
+        form: { setFieldsValue }
+      } = this
       setFieldsValue({
         owner: ['wzj']
       })

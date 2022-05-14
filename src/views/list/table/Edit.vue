@@ -1,20 +1,10 @@
 <template>
   <div>
     <a-form :form="form" @submit="handleSubmit">
-
-      <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
-        label="规则编号"
-        hasFeedback
-        validateStatus="success"
-      >
+      <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="规则编号" hasFeedback validateStatus="success">
         <a-input
           placeholder="规则编号"
-          v-decorator="[
-            'no',
-            {rules: [{ required: true, message: '请输入规则编号' }]}
-          ]"
+          v-decorator="['no', { rules: [{ required: true, message: '请输入规则编号' }] }]"
           :disabled="true"
         ></a-input>
       </a-form-item>
@@ -26,40 +16,22 @@
         hasFeedback
         validateStatus="success"
       >
-        <a-input-number :min="1" style="width: 100%" v-decorator="['callNo', {rules: [{ required: true }]}]" />
+        <a-input-number :min="1" style="width: 100%" v-decorator="['callNo', { rules: [{ required: true }] }]" />
       </a-form-item>
 
-      <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
-        label="状态"
-        hasFeedback
-        validateStatus="warning"
-      >
-        <a-select v-decorator="['status', {rules: [{ required: true, message: '请选择状态' }], initialValue: '1'}]">
+      <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="状态" hasFeedback validateStatus="warning">
+        <a-select v-decorator="['status', { rules: [{ required: true, message: '请选择状态' }], initialValue: '1' }]">
           <a-select-option :value="1">Option 1</a-select-option>
           <a-select-option :value="2">Option 2</a-select-option>
           <a-select-option :value="3">Option 3</a-select-option>
         </a-select>
       </a-form-item>
 
-      <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
-        label="描述"
-        hasFeedback
-        help="请填写一段描述"
-      >
-        <a-textarea :rows="5" placeholder="..." v-decorator="['description', {rules: [{ required: true }]}]" />
+      <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="描述" hasFeedback help="请填写一段描述">
+        <a-textarea :rows="5" placeholder="..." v-decorator="['description', { rules: [{ required: true }] }]" />
       </a-form-item>
 
-      <a-form-item
-        :labelCol="labelCol"
-        :wrapperCol="wrapperCol"
-        label="更新时间"
-        hasFeedback
-        validateStatus="error"
-      >
+      <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol" label="更新时间" hasFeedback validateStatus="error">
         <a-date-picker
           style="width: 100%"
           showTime
@@ -69,9 +41,7 @@
         />
       </a-form-item>
 
-      <a-form-item
-        v-bind="buttonCol"
-      >
+      <a-form-item v-bind="buttonCol">
         <a-row>
           <a-col span="6">
             <a-button type="primary" html-type="submit">提交</a-button>
@@ -131,7 +101,9 @@ export default {
       this.$emit('onGoBack')
     },
     handleSubmit () {
-      const { form: { validateFields } } = this
+      const {
+        form: { validateFields }
+      } = this
       validateFields((err, values) => {
         if (!err) {
           // eslint-disable-next-line no-console
@@ -139,9 +111,7 @@ export default {
         }
       })
     },
-    handleGetInfo () {
-
-    },
+    handleGetInfo () {},
     loadEditInfo (data) {
       const { form } = this
       // ajax

@@ -13,7 +13,7 @@
       广告代码 真实项目中请移除
       production remove this Ads
     -->
-    <ads v-if="isProPreviewSite && !collapsed"/>
+    <ads v-if="isProPreviewSite && !collapsed" />
     <!-- Ads end -->
 
     <!-- 1.0.0+ 版本 pro-layout 提供 API，
@@ -31,15 +31,21 @@
     <template v-slot:headerContentRender>
       <div>
         <a-tooltip title="刷新页面">
-          <a-icon type="reload" style="font-size: 18px;cursor: pointer;" @click="() => { $message.info('只是一个DEMO') }" />
+          <a-icon
+            type="reload"
+            style="font-size: 18px; cursor: pointer"
+            @click="
+              () => {
+                $message.info('只是一个DEMO')
+              }
+            "
+          />
         </a-tooltip>
       </div>
     </template>
 
     <setting-drawer v-if="isDev" :settings="settings" @change="handleSettingChange">
-      <div style="margin: 12px 0;">
-        This is SettingDrawer custom footer content.
-      </div>
+      <div style="margin: 12px 0">This is SettingDrawer custom footer content.</div>
     </setting-drawer>
     <template v-slot:rightContentRender>
       <right-content :top-menu="settings.layout === 'topmenu'" :is-mobile="isMobile" :theme="settings.theme" />
@@ -111,11 +117,11 @@ export default {
   computed: {
     ...mapState({
       // 动态主路由
-      mainMenu: state => state.permission.addRouters
+      mainMenu: (state) => state.permission.addRouters
     })
   },
   created () {
-    const routes = this.mainMenu.find(item => item.path === '/')
+    const routes = this.mainMenu.find((item) => item.path === '/')
     this.menus = (routes && routes.children) || []
     // 处理侧栏收起状态
     this.$watch('collapsed', () => {
@@ -182,5 +188,5 @@ export default {
 </script>
 
 <style lang="less">
-@import "./BasicLayout.less";
+@import './BasicLayout.less';
 </style>

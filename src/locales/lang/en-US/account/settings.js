@@ -36,8 +36,7 @@ export default {
   'account.settings.security.email': 'Backup Email',
   'account.settings.security.email-description': 'Bound Email：',
   'account.settings.security.mfa': 'MFA Device',
-  'account.settings.security.mfa-description':
-    'Unbound MFA device, after binding, can be confirmed twice',
+  'account.settings.security.mfa-description': 'Unbound MFA device, after binding, can be confirmed twice',
   'account.settings.security.modify': 'Modify',
   'account.settings.security.set': 'Set',
   'account.settings.security.bind': 'Bind',

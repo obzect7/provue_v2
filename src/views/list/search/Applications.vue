@@ -2,7 +2,7 @@
   <div>
     <a-card :bordered="false" class="ant-pro-components-tag-select">
       <a-form :form="form" layout="inline">
-        <standard-form-row title="所属类目" block style="padding-bottom: 11px;">
+        <standard-form-row title="所属类目" block style="padding-bottom: 11px">
           <a-form-item>
             <tag-select>
               <tag-select-option value="Category1">类目一</tag-select-option>
@@ -24,7 +24,7 @@
             <a-col :lg="8" :md="10" :sm="10" :xs="24">
               <a-form-item :wrapper-col="{ sm: { span: 16 }, xs: { span: 24 } }" label="作者">
                 <a-select
-                  style="max-width: 200px; width: 100%;"
+                  style="max-width: 200px; width: 100%"
                   mode="multiple"
                   placeholder="不限"
                   v-decorator="['author']"
@@ -36,7 +36,7 @@
             </a-col>
             <a-col :lg="8" :md="10" :sm="10" :xs="24">
               <a-form-item :wrapper-col="{ sm: { span: 16 }, xs: { span: 24 } }" label="好评度">
-                <a-select style="max-width: 200px; width: 100%;" placeholder="不限" v-decorator="['rate']">
+                <a-select style="max-width: 200px; width: 100%" placeholder="不限" v-decorator="['rate']">
                   <a-select-option value="good">优秀</a-select-option>
                   <a-select-option value="normal">普通</a-select-option>
                 </a-select>
@@ -52,7 +52,7 @@
         :loading="loading"
         :data-source="data"
         :grid="{ gutter: 24, xl: 4, lg: 3, md: 3, sm: 2, xs: 1 }"
-        style="margin-top: 24px;"
+        style="margin-top: 24px"
       >
         <a-list-item slot="renderItem" slot-scope="item">
           <a-card :body-style="{ paddingBottom: 20 }" hoverable>
@@ -135,7 +135,7 @@ export default {
       console.log(`selected ${value}`)
     },
     getList () {
-      this.$http.get('/list/article', { params: { count: 8 } }).then(res => {
+      this.$http.get('/list/article', { params: { count: 8 } }).then((res) => {
         console.log('res', res)
         this.data = res.result
         this.loading = false

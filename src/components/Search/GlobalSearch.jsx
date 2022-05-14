@@ -47,8 +47,7 @@ const GlobalSearch = {
             onSearch={handleSearch}
             onChange={handleChange}
             notFoundContent={null}
-          >
-          </Select>
+          ></Select>
           <div class={'global-search-tips'}>Open with Ctrl/⌘ + K</div>
         </div>
       </div>

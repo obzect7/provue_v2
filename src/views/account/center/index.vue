@@ -5,43 +5,32 @@
         <a-card :bordered="false">
           <div class="account-center-avatarHolder">
             <div class="avatar">
-              <img :src="avatar">
+              <img :src="avatar" />
             </div>
-            <div class="username">{{ nickname }}</div>
+            <div class="userid">{{ nickname }}</div>
             <div class="bio">海纳百川，有容乃大</div>
           </div>
           <div class="account-center-detail">
-            <p>
-              <i class="title"></i>交互专家
-            </p>
-            <p>
-              <i class="group"></i>蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED
-            </p>
+            <p><i class="title"></i>交互专家</p>
+            <p><i class="group"></i>蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED</p>
             <p>
               <i class="address"></i>
               <span>浙江省</span>
               <span>杭州市</span>
             </p>
           </div>
-          <a-divider/>
+          <a-divider />
 
           <div class="account-center-tags">
             <div class="tagsTitle">标签</div>
             <div>
               <template v-for="(tag, index) in tags">
                 <a-tooltip v-if="tag.length > 20" :key="tag" :title="tag">
-                  <a-tag
-                    :key="tag"
-                    :closable="index !== 0"
-                    :close="() => handleTagClose(tag)"
-                  >{{ `${tag.slice(0, 20)}...` }}</a-tag>
+                  <a-tag :key="tag" :closable="index !== 0" :close="() => handleTagClose(tag)">{{
+                    `${tag.slice(0, 20)}...`
+                  }}</a-tag>
                 </a-tooltip>
-                <a-tag
-                  v-else
-                  :key="tag"
-                  :closable="index !== 0"
-                  :close="() => handleTagClose(tag)"
-                >{{ tag }}</a-tag>
+                <a-tag v-else :key="tag" :closable="index !== 0" :close="() => handleTagClose(tag)">{{ tag }}</a-tag>
               </template>
               <a-input
                 v-if="tagInputVisible"
@@ -54,12 +43,12 @@
                 @blur="handleTagInputConfirm"
                 @keyup.enter="handleTagInputConfirm"
               />
-              <a-tag v-else @click="showTagInput" style="background: #fff; borderStyle: dashed;">
-                <a-icon type="plus"/>New Tag
+              <a-tag v-else @click="showTagInput" style="background: #fff; borderstyle: dashed">
+                <a-icon type="plus" />New Tag
               </a-tag>
             </div>
           </div>
-          <a-divider :dashed="true"/>
+          <a-divider :dashed="true" />
 
           <div class="account-center-team">
             <div class="teamTitle">团队</div>
@@ -68,7 +57,7 @@
                 <a-row>
                   <a-col :span="12" v-for="(item, index) in teams" :key="index">
                     <a>
-                      <a-avatar size="small" :src="item.avatar"/>
+                      <a-avatar size="small" :src="item.avatar" />
                       <span class="member">{{ item.name }}</span>
                     </a>
                   </a-col>
@@ -80,11 +69,11 @@
       </a-col>
       <a-col :md="24" :lg="17">
         <a-card
-          style="width:100%"
+          style="width: 100%"
           :bordered="false"
           :tabList="tabListNoTitle"
           :activeTabKey="noTitleKey"
-          @tabChange="key => handleTabChange(key, 'noTitleKey')"
+          @tabChange="(key) => handleTabChange(key, 'noTitleKey')"
         >
           <article-page v-if="noTitleKey === 'article'"></article-page>
           <app-page v-else-if="noTitleKey === 'app'"></app-page>
@@ -144,7 +133,7 @@ export default {
   },
   methods: {
     getTeams () {
-      this.$http.get('/workplace/teams').then(res => {
+      this.$http.get('/workplace/teams').then((res) => {
         this.teams = res.result
         this.teamSpinning = false
       })
@@ -155,7 +144,7 @@ export default {
     },
 
     handleTagClose (removeTag) {
-      const tags = this.tags.filter(tag => tag !== removeTag)
+      const tags = this.tags.filter((tag) => tag !== removeTag)
       this.tags = tags
     },
 
@@ -211,7 +200,7 @@ export default {
       }
     }
 
-    .username {
+    .userid {
       color: rgba(0, 0, 0, 0.85);
       font-size: 20px;
       line-height: 28px;

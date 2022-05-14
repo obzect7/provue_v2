@@ -23,7 +23,7 @@ export default {
     }
   },
   watch: {
-    'checked' (val) {
+    checked (val) {
       this.localChecked = val
     },
     '$parent.items': {
@@ -38,8 +38,10 @@ export default {
     const onChange = (checked) => {
       this.$emit('change', { value, checked })
     }
-    return (<CheckableTag key={value} vModel={this.localChecked} onChange={onChange}>
-      {$slots.default}
-    </CheckableTag>)
+    return (
+      <CheckableTag key={value} vModel={this.localChecked} onChange={onChange}>
+        {$slots.default}
+      </CheckableTag>
+    )
   }
 }
