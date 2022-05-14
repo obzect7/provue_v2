@@ -280,7 +280,7 @@ export const asyncRouterMap = [
         path: '/other',
         name: 'otherPage',
         component: PageView,
-        meta: { title: '其他组件', icon: 'slack', permission: [ 'dashboard' ] },
+        meta: { title: '기타 구성 요소', icon: 'slack', permission: [ 'dashboard' ] },
         redirect: '/other/icon-selector',
         children: [
           {
@@ -292,44 +292,44 @@ export const asyncRouterMap = [
           {
             path: '/other/list',
             component: RouteView,
-            meta: { title: '业务布局', icon: 'layout', permission: [ 'support' ] },
+            meta: { title: '비즈니스 레이아웃', icon: 'layout', permission: [ 'support' ] },
             redirect: '/other/list/tree-list',
             children: [
               {
                 path: '/other/list/tree-list',
                 name: 'TreeList',
                 component: () => import('@/views/other/TreeList'),
-                meta: { title: '树目录表格', keepAlive: true }
+                meta: { title: '트리 목차', keepAlive: true }
               },
               {
                 path: '/other/list/edit-table',
                 name: 'EditList',
                 component: () => import('@/views/other/TableInnerEditList'),
-                meta: { title: '内联编辑表格', keepAlive: true }
+                meta: { title: '인라인 편집 양식', keepAlive: true }
               },
               {
                 path: '/other/list/user-list',
                 name: 'UserList',
                 component: () => import('@/views/other/UserList'),
-                meta: { title: '用户列表', keepAlive: true }
+                meta: { title: '사용자 목록', keepAlive: true }
               },
               {
                 path: '/other/list/role-list',
                 name: 'RoleList',
                 component: () => import('@/views/other/RoleList'),
-                meta: { title: '角色列表', keepAlive: true }
+                meta: { title: '역할 목록', keepAlive: true }
               },
               {
                 path: '/other/list/system-role',
                 name: 'SystemRole',
                 component: () => import('@/views/role/RoleList'),
-                meta: { title: '角色列表2', keepAlive: true }
+                meta: { title: '역할 목록 2', keepAlive: true }
               },
               {
                 path: '/other/list/permission-list',
                 name: 'PermissionList',
                 component: () => import('@/views/other/PermissionList'),
-                meta: { title: '权限列表', keepAlive: true }
+                meta: { title: '권한 목록', keepAlive: true }
               }
             ]
           }
@@ -346,7 +346,7 @@ export const asyncRouterMap = [
 ]
 
 /**
- * 基础路由
+ * 기본 라우팅
  * @type { *[] }
  */
 export const constantRouterMap = [

@@ -1,5 +1,5 @@
 /**
- * 向后端请求用户的菜单，动态生成路由
+ * 백엔드에서 사용자 메뉴를 요청하고 동적으로 경로를 생성합니다.
  */
 import { constantRouterMap } from '@/config/router.config'
 import { generatorDynamicRouter } from '@/router/generator-routers'
