@@ -29,7 +29,7 @@ export const asyncRouterMap = [
             component: () => import('@/views/dashboard/Analysis'),
             meta: { title: 'menu.dashboard.analysis', keepAlive: false, permission: ['dashboard'] }
           },
-          // 外部链接
+          // 외부 링크
           {
             path: 'https://www.baidu.com/',
             name: 'Monitor',
@@ -81,7 +81,7 @@ export const asyncRouterMap = [
           {
             path: '/list/table-list/:pageNo([1-9]\\d*)?',
             name: 'TableListWrapper',
-            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            hideChildrenInMenu: true, // SubMenu 대신 MenuItem 강제 표시
             component: () => import('@/views/list/TableList'),
             meta: { title: 'menu.list.table-list', keepAlive: true, permission: ['table'] }
           },

@@ -3,7 +3,7 @@
  */
 
 /**
- * 清理空值，对象
+ * null 객체 정리
  * @param children
  * @returns {*[]}
  */
@@ -12,7 +12,7 @@ export function filterEmpty (children = []) {
 }
 
 /**
- * 获取字符串长度，英文字符 长度1，中文字符长度2
+ * 문자열 길이, 영문자 길이 1byte, 한글 길이 2byte가져오기
  * @param {*} str
  */
 export const getStrFullLength = (str = '') =>
@@ -25,7 +25,7 @@ export const getStrFullLength = (str = '') =>
   }, 0)
 
 /**
- * 截取字符串，根据 maxLength 截取后返回
+ * 문자열을 가로채서 maxLength에 따라 반환합니다.
  * @param {*} str
  * @param {*} maxLength
  */
